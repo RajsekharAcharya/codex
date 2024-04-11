@@ -31,8 +31,8 @@ Codex is a powerful Spring Boot application designed to streamline your project 
 
 Before you begin, make sure you have the following installed:
 
-- Java 11 or higher
-- Maven or Gradle (depending on your preferred build tool)
+- Java 17 or higher
+- Maven 
 
 ## Installation
 
@@ -50,10 +50,6 @@ Before you begin, make sure you have the following installed:
     - For Maven:
         ```bash
         mvn clean install
-        ```
-    - For Gradle:
-        ```bash
-        ./gradlew build
         ```
 
 ## Configuration
@@ -77,11 +73,6 @@ Once you have built the application, you can run it using your build tool:
 - For Maven:
     ```bash
     mvn spring-boot:run
-    ```
-
-- For Gradle:
-    ```bash
-    ./gradlew bootRun
     ```
 
 The application will be available at `http://localhost:8080`.
