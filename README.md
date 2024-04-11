@@ -97,5 +97,5 @@ Codex is licensed under the [MIT License](LICENSE).
 
 If you have any questions, suggestions, or feedback, feel free to reach out to us:
 
-- Email: your.email@example.com
-- GitHub: [@yourusername](https://github.com/yourusername)
+- Email: rajsekhar.acharya@example.com
+- GitHub: [@RajsekharAcharya](https://github.com/RajsekharAcharya)
