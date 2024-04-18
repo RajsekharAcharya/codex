@@ -8,21 +8,15 @@
 		<version>3.2.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.app</groupId>
-	<artifactId>codex</artifactId>
+	<groupId>com.codex</groupId>
+	<artifactId>basic-security</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>codex</name>
-	<description>Code Reload</description>
+	<name>basic-security</name>
+	<description>Basic Security Project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -61,7 +55,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<finalName>codex</finalName>
 	</build>
 
 </project>

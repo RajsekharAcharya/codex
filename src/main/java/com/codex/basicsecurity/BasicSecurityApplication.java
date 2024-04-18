@@ -1,13 +1,13 @@
-package com.app.codex;
+package com.codex.basicsecurity;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CodexApplication {
+public class BasicSecurityApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CodexApplication.class, args);
+		SpringApplication.run(BasicSecurityApplication.class, args);
 	}
 
 }
