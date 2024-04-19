@@ -1,7 +1,5 @@
 HELP.md
 /target/
-/logs/
-
 ### STS ###
 .apt_generated
 .classpath
