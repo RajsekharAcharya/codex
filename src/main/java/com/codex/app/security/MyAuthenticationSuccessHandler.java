@@ -1,4 +1,4 @@
-package com.codex.basicsecurity.security;
+package com.codex.app.security;
 
 import java.io.IOException;
 
@@ -11,9 +11,9 @@ import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 
-import com.codex.basicsecurity.model.MyUserDetails;
-import com.codex.basicsecurity.model.UserEntity;
-import com.codex.basicsecurity.repository.UserEntityRepository;
+import com.codex.app.model.MyUserDetails;
+import com.codex.app.model.UserEntity;
+import com.codex.app.repository.UserEntityRepository;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

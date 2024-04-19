@@ -1,4 +1,4 @@
-package com.codex.basicsecurity.security;
+package com.codex.app.security;
 
 import java.io.IOException;
 

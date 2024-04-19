@@ -1,3 +1,4 @@
+package com.codex.app.Initializer;
 // package com.codex.basicsecurity.Initializer;
 
 // import org.springframework.beans.factory.annotation.Autowired;

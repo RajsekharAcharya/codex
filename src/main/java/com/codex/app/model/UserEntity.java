@@ -1,4 +1,4 @@
-package com.codex.basicsecurity.model;
+package com.codex.app.model;
 
 import java.time.LocalDateTime;
 

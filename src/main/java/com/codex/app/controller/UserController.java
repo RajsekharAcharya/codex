@@ -1,4 +1,4 @@
-package com.codex.basicsecurity.controller;
+package com.codex.app.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

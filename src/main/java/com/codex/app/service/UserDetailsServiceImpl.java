@@ -1,12 +1,12 @@
-package com.codex.basicsecurity.service;
+package com.codex.app.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import com.codex.basicsecurity.model.MyUserDetails;
-import com.codex.basicsecurity.repository.UserEntityRepository;
+import com.codex.app.model.MyUserDetails;
+import com.codex.app.repository.UserEntityRepository;
 
 public class UserDetailsServiceImpl implements UserDetailsService {
 

@@ -1,4 +1,4 @@
-package com.codex.basicsecurity.security;
+package com.codex.app.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,7 +15,7 @@ import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
-import com.codex.basicsecurity.service.UserDetailsServiceImpl;
+import com.codex.app.service.UserDetailsServiceImpl;
 
 @Configuration
 @EnableWebSecurity
