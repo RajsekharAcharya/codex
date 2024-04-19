@@ -57,10 +57,13 @@ public class WebSecurityConfig {
         auth.authenticationProvider(authenticationProvider());
     }
 
+    @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authorize -> authorize
-                        .anyRequest().permitAll())
+                .requestMatchers("/assets/**").permitAll()
+                .requestMatchers( "/public/**", "/403", "/privacy-policy","/login").permitAll()
+                .anyRequest().authenticated())
                 .formLogin(form -> form
                         .loginPage("/login")
                         .successHandler(successHandler)
@@ -79,10 +82,10 @@ public class WebSecurityConfig {
         return http.build();
     }
 
-    @Bean
-    public WebSecurityCustomizer webSecurityCustomizer() {
-        return web -> web.ignoring()
-                .requestMatchers("/assets/**", "/public/**");
-    }
+    // @Bean
+    // public WebSecurityCustomizer webSecurityCustomizer() {
+    //     return web -> web.ignoring()
+    //             .requestMatchers("/assets/**", "/public/**");
+    // }
 
 }

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+
+<body>
+    <h1>Login</h1>
+
+    <div th:if="${param.error}" id="loginError">
+        <span style="color:red" class="lbl-login-error" th:text="${session.loginError}"></span>
+    </div>
+
+    <form action="#" method="post" id="loginForm">
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+
+        <button th:if="${param['otp-verification'] == null}" type="submit">Login</button>
+    </form>
+    <!-- Show OTP field only if otp-verification parameter is present -->
+    <div th:if="${param['otp-verification'] != null}">
+        <label for="otp">One-Time Password:</label>
+        <input type="text" id="otp" name="otp" required>
+        <button type="click"></button>
+    </div>
+
+    <button><a href="logout">Logout</a></button>
+</body>
+
+</html>
