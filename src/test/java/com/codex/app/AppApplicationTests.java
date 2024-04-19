@@ -1,10 +1,10 @@
-package com.codex.basicsecurity;
+package com.codex.app;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BasicSecurityApplicationTests {
+class AppApplicationTests {
 
 	@Test
 	void contextLoads() {
