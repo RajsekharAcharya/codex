@@ -40,6 +40,8 @@ public class JwtUtil {
 
     private String createToken(UserDetails user) {
         return Jwts.builder()
+                .header().add("typ", "JWT")
+                .and()
                 .subject(user.getUsername())
                 .issuedAt(new Date(System.currentTimeMillis()))
                 .expiration(new Date(System.currentTimeMillis() + jwtExpirationMs))
