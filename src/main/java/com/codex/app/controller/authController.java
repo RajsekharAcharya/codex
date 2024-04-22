@@ -37,7 +37,7 @@ public class authController {
             // Authenticate the user
             final Authentication auth = doAuthenticate(authenticationRequest.getUsername(),
                     authenticationRequest.getPassword());
-                    MyUserDetail user = (MyUserDetail) auth.getPrincipal();
+                    // MyUserDetail user = (MyUserDetail) auth.getPrincipal();
 
             // Check if the user has an active subscription plan
                 SecurityContextHolder.getContext().setAuthentication(auth);
