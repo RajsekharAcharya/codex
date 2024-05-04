@@ -1,5 +1,9 @@
 package com.codex.app.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +23,8 @@ import com.codex.app.jwt.JwtUtil;
 import com.codex.app.modal.AuthenticationRequest;
 import com.codex.app.modal.AuthenticationResponse;
 import com.codex.app.modal.MyUserDetail;
+import com.codex.app.modal.UserEntity;
+import com.codex.app.repository.UserEntityRepository;
 import com.codex.app.response.ResponseHandler;
 
 @RestController
@@ -30,20 +36,29 @@ public class authController {
     @Autowired
     private JwtUtil jwtUtil;
 
+    @Autowired
+    UserEntityRepository userEntityRepository;
+
 
     @PostMapping("/login")
     public ResponseEntity<?> loginUser(@RequestBody AuthenticationRequest authenticationRequest) {
+        System.out.println(authenticationRequest);
         try {
             // Authenticate the user
             final Authentication auth = doAuthenticate(authenticationRequest.getUsername(),
                     authenticationRequest.getPassword());
-                    // MyUserDetail user = (MyUserDetail) auth.getPrincipal();
+                    MyUserDetail user = (MyUserDetail) auth.getPrincipal();
 
             // Check if the user has an active subscription plan
+
+            Optional<UserEntity> byUsername = userEntityRepository.findByUsername(user.getUsername());
+
                 SecurityContextHolder.getContext().setAuthentication(auth);
                 String token = jwtUtil.generateToken(auth);
-                
-                return ResponseHandler.generateResponse("Authentication Token Use with [Bearer ]", HttpStatus.ACCEPTED, new AuthenticationResponse(token));
+                Map<String, Object> tokenMap = new HashMap<String, Object>();
+                tokenMap.put("token", token);
+                tokenMap.put("user", byUsername);
+                return ResponseHandler.generateResponse("Authentication Token Use with [Bearer ]", HttpStatus.ACCEPTED, tokenMap);
 
         } catch (AuthenticationException e) {
             return ResponseHandler.generateResponse("Invalid username or password", HttpStatus.UNAUTHORIZED, null);

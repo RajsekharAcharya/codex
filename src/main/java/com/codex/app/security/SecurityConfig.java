@@ -58,8 +58,8 @@ public class SecurityConfig {
                 .cors(cors -> cors.disable())
                 .authorizeHttpRequests(
                         auth -> auth
-                                .requestMatchers(WHITE_LIST_URL).permitAll()
-                                .requestMatchers("/auth/**","/swagger-ui/**").permitAll()
+                                // .requestMatchers(WHITE_LIST_URL).permitAll()
+                                .requestMatchers("/", "/index.html", "/app/**", "/register", "/authenticate", "/favicon.ico","/auth/**").permitAll()
                                 .anyRequest().authenticated())
                 .exceptionHandling(ex -> ex.authenticationEntryPoint(point))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
