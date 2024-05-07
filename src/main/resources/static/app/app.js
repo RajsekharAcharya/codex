@@ -5,7 +5,6 @@ angular.module('JWTDemoApp', ['ui.router','angular-jwt'])
         // Checking if the user is logged in or not
 
         var token = localStorage.getItem('jwtToken');
-        console.log(token);
         if (token) {
             // Decode the token to get user information
             var data = jwtHelper.decodeToken(token);
@@ -13,8 +12,6 @@ angular.module('JWTDemoApp', ['ui.router','angular-jwt'])
             AuthService.subject = data.sub;
             AuthService.Authorities = data.Authorities;
         }
-
-        console.log('Transition started');
         if (!AuthService.subject) {
             // Avoiding the infinite looping of state change
             if (transition.to().name !== 'login' && transition.to().name !== 'register') {
@@ -22,8 +19,6 @@ angular.module('JWTDemoApp', ['ui.router','angular-jwt'])
             }
         } else {
             // Checking if the user is authorized to view the states
-
-            console.log(transition.to());
             if (transition.to().data && transition.to().data.role) {
                 var hasAccess = AuthService.Authorities.some(function(authority) {
                     return authority.authority === transition.to().data.role;

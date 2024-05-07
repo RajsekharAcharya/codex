@@ -1,9 +1,12 @@
 angular.module('JWTDemoApp')
 // Creating the Angular Controller
 .controller('LoginController', ['$http', '$scope', '$state', 'AuthService', '$rootScope', 'jwtHelper', '$window', function ($http, $scope, $state, AuthService, $rootScope, jwtHelper, $window) {
-
     $scope.form = {};
     // method for login
+        // Check if the user is already logged in
+        if (AuthService.subject) {
+            $state.go('home');
+        }
     $scope.login = function () {
         console.log($scope.form);
         // requesting the token by usename and password

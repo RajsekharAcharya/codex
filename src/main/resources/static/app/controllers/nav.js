@@ -9,7 +9,8 @@ angular.module('JWTDemoApp')
             $scope.user = null;
         });
         $scope.logout = function () {
-            AuthService.user = null;
+            AuthService.subject = null;
+            AuthService.Authorities = null;
             $window.localStorage.removeItem('jwtToken')
             $rootScope.$broadcast('LogoutSuccessful');
             $state.go('login');

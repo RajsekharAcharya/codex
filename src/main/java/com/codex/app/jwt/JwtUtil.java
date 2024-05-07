@@ -23,7 +23,9 @@ import jakarta.servlet.http.HttpServletRequest;
 public class JwtUtil {
 
     private SecretKey key;
-    private final int jwtExpirationMs = 1000 * 60 * 60 * 10; // 10 hours
+    // private final int jwtExpirationMs = 1000 * 60 * 60 * 10; // 10 hours
+    private final int jwtExpirationMs = 10000; // 10 seconds
+
 
     public JwtUtil(@Value("${secretKey}") String secretKey) {
         // String secreteString =
