@@ -13,7 +13,6 @@ angular.module('JWTDemoApp').config(['$stateProvider', '$urlRouterProvider', fun
             }
         }
     }).state('login', {
-        parent: 'nav',
         url: '/login',
         views: {
             'content@': {

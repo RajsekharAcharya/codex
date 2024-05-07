@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.codex.app.jwt.JwtUtil;
 import com.codex.app.modal.AuthenticationRequest;
-import com.codex.app.modal.AuthenticationResponse;
 import com.codex.app.modal.MyUserDetail;
 import com.codex.app.modal.UserEntity;
 import com.codex.app.repository.UserEntityRepository;
@@ -47,18 +46,13 @@ public class authController {
             // Authenticate the user
             final Authentication auth = doAuthenticate(authenticationRequest.getUsername(),
                     authenticationRequest.getPassword());
-                    MyUserDetail user = (MyUserDetail) auth.getPrincipal();
+                    // MyUserDetail user = (MyUserDetail) auth.getPrincipal();
 
             // Check if the user has an active subscription plan
 
-            Optional<UserEntity> byUsername = userEntityRepository.findByUsername(user.getUsername());
-
                 SecurityContextHolder.getContext().setAuthentication(auth);
                 String token = jwtUtil.generateToken(auth);
-                Map<String, Object> tokenMap = new HashMap<String, Object>();
-                tokenMap.put("token", token);
-                tokenMap.put("user", byUsername);
-                return ResponseHandler.generateResponse("Authentication Token Use with [Bearer ]", HttpStatus.ACCEPTED, tokenMap);
+                return ResponseHandler.generateResponse("Authentication Token Use with [Bearer ]", HttpStatus.ACCEPTED, token);
 
         } catch (AuthenticationException e) {
             return ResponseHandler.generateResponse("Invalid username or password", HttpStatus.UNAUTHORIZED, null);

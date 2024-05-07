@@ -1,6 +1,6 @@
 angular.module('JWTDemoApp')
 // Creating the Angular Controller
-.controller('LoginController', ['$http', '$scope', '$state', 'AuthService', '$rootScope', function ($http, $scope, $state, AuthService, $rootScope) {
+.controller('LoginController', ['$http', '$scope', '$state', 'AuthService', '$rootScope', 'jwtHelper', '$window', function ($http, $scope, $state, AuthService, $rootScope, jwtHelper, $window) {
 
     $scope.form = {};
     // method for login
@@ -16,13 +16,16 @@ angular.module('JWTDemoApp')
             $scope.password = null;
             console.log(res);
             // checking if the token is available in the response
-            if (res.data.token) {
+            if (res.data) {
                 $scope.message = '';
+                // Storing the token in local storage
+                $window.localStorage.setItem('jwtToken', res.data);
                 // setting the Authorization Bearer token with JWT token
-                $http.defaults.headers.common['Authorization'] = 'Bearer ' + res.data.token;
-
+                $http.defaults.headers.common['Authorization'] = 'Bearer ' + res.data;
+                var data = jwtHelper.decodeToken(res.data);
                 // setting the user in AuthService
-                AuthService.user = res.data.user;
+                AuthService.subject = data.sub;
+                AuthService.Authorities = data.Authorities;
                 $rootScope.$broadcast('LoginSuccessful');
                 // going to the home page
                 $state.go('home');
