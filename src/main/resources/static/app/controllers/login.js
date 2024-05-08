@@ -9,6 +9,10 @@ angular.module('JWTDemoApp')
         }
     $scope.login = function () {
         console.log($scope.form);
+        // Clear existing JWT token
+        $window.localStorage.removeItem('jwtToken');
+        // Clear Authorization header
+        delete $http.defaults.headers.common['Authorization'];
         // requesting the token by usename and password
         $http({
             url: 'auth/login',

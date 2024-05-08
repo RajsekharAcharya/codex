@@ -1,6 +1,6 @@
 angular.module('JWTDemoApp', ['ui.router','angular-jwt'])
 
-.run(['AuthService', '$transitions','jwtHelper', function (AuthService, $transitions,jwtHelper) {
+.run(['AuthService', '$transitions','jwtHelper','TokenExpirationService', function (AuthService, $transitions,jwtHelper,TokenExpirationService) {
     $transitions.onStart({}, function(transition) {
         // Checking if the user is logged in or not
 

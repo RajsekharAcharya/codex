@@ -1,9 +1,5 @@
 package com.codex.app.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,8 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.codex.app.jwt.JwtUtil;
 import com.codex.app.modal.AuthenticationRequest;
-import com.codex.app.modal.MyUserDetail;
-import com.codex.app.modal.UserEntity;
 import com.codex.app.repository.UserEntityRepository;
 import com.codex.app.response.ResponseHandler;
 
