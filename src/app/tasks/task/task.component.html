@@ -1,3 +1,7 @@
+@if (isEditingTask) {
+  <app-edit-task (close)="onCloseEditTask()" [taskId]="taskData.id"></app-edit-task>
+  }
+
 <app-card>
   <article>
     <h2>{{taskData.title}}</h2>
@@ -5,6 +9,7 @@
     <p>{{taskData.summary}}</p>
     <p class="actions">
       <button (click)="onCompleteTask()">Complete</button>
+      <button (click)="onEditTask()">Edit</button>
     </p>
   </article>
 </app-card>

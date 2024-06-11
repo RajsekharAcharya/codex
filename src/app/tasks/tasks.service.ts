@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { newTaskData } from "./task/task.model";
+import { newTaskData, task } from "./task/task.model";
 
 @Injectable({
   providedIn: 'root'
@@ -32,9 +32,20 @@ export class TasksService {
     },
   ];
 
+  constructor(){
+    const tasks=localStorage.getItem('tasks');
+    if(tasks){
+      this.tasks= JSON.parse(tasks);
+    }
+  }
+
 
   getUserTasks(userId:string){
     return this.tasks.filter((task)=>task.userId === userId);
+  }
+
+  getTaskById(taskId:string){
+    return this.tasks.find((task) => task.id === taskId);
   }
 
   addTask(taskData: newTaskData,userId:string){
@@ -45,10 +56,26 @@ export class TasksService {
       summary:taskData.summary,
       dueDate:taskData.date
     });
+    this.saveTasks();
+  }
+
+  updateTask(updatedTask: task) {
+    const taskIndex = this.tasks.findIndex((task) => task.id === updatedTask.id);
+    if (taskIndex !== -1) {
+      this.tasks[taskIndex] = updatedTask;
+      this.saveTasks();
+    } else {
+      console.error('Task not found:', updatedTask.id);
+    }
   }
 
   removeTask(taskId:string){
     this.tasks = this.tasks.filter((task)=>task.id !== taskId);
+    this.saveTasks();
+  }
+
+  private saveTasks(){
+    localStorage.setItem('tasks',JSON.stringify(this.tasks))
   }
 
 }

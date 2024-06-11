@@ -1,26 +1,33 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { DatePipe } from "@angular/common";
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
+import { DatePipe } from '@angular/common';
 
-import { task } from './task.model'
-import { CardComponent } from "../../shared/card/card.component";
+import { task } from './task.model';
+import { CardComponent } from '../../shared/card/card.component';
+import { TasksService } from '../tasks.service';
+import { EditTaskComponent } from '../edit-task/edit-task.component';
 
 @Component({
-    selector: 'app-task',
-    standalone: true,
-    templateUrl: './task.component.html',
-    styleUrl: './task.component.css',
-    imports: [CardComponent,DatePipe]
+  selector: 'app-task',
+  standalone: true,
+  templateUrl: './task.component.html',
+  styleUrl: './task.component.css',
+  imports: [CardComponent, DatePipe, EditTaskComponent],
 })
 export class TaskComponent {
-  @Input({required:true}) taskData!:task;
+  @Input({ required: true }) taskData!: task;
+  private taskService = inject(TasksService);
 
-  @Output() complete = new EventEmitter<string>();
-
+  isEditingTask = false;
 
   onCompleteTask() {
-    this.complete.emit(this.taskData.id)
-    }
+    this.taskService.removeTask(this.taskData.id);
+  }
 
+  onEditTask() {
+    this.isEditingTask = true;
+  }
 
-
+  onCloseEditTask() {
+    this.isEditingTask = false;
+  }
 }
