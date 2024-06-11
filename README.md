@@ -1,101 +1,27 @@
 # Codex
 
-Welcome to Codex! Codex is a Spring Boot application designed to help you manage your projects efficiently. It offers features such as task management, user collaboration, and project tracking. This README will guide you through the installation, setup, and usage of Codex.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.3.
 
-## Table of Contents
+## Development server
 
-- [Overview](#overview)
-- [Features](#features)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Running the App](#running-the-app)
-- [Usage](#usage)
-- [API Documentation](#api-documentation)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Overview
+## Code scaffolding
 
-Codex is a powerful Spring Boot application designed to streamline your project management workflow. Whether you're tracking tasks, collaborating with team members, or monitoring project progress, Codex has you covered.
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Features
+## Build
 
-- Task management and tracking
-- User collaboration and communication tools
-- Project monitoring and reporting
-- Intuitive user interface
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Prerequisites
+## Running unit tests
 
-Before you begin, make sure you have the following installed:
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-- Java 17 or higher
-- Maven 
+## Running end-to-end tests
 
-## Installation
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-1. **Clone the repository:**
-    ```bash
-    git clone https://github.com/yourusername/codex.git
-    ```
+## Further help
 
-2. **Navigate to the project directory:**
-    ```bash
-    cd codex
-    ```
-
-3. **Build the application:**
-    - For Maven:
-        ```bash
-        mvn clean install
-        ```
-
-## Configuration
-
-1. **Database Configuration:**
-    - Configure your database connection in `src/main/resources/application.properties`:
-
-        ```properties
-        spring.datasource.url=jdbc:mysql://localhost:3306/codex
-        spring.datasource.username=username
-        spring.datasource.password=password
-        ```
-
-2. **Other Configuration:**
-    - Customize any additional settings in the `application.properties` file as needed.
-
-## Running the App
-
-Once you have built the application, you can run it using your build tool:
-
-- For Maven:
-    ```bash
-    mvn spring-boot:run
-    ```
-
-The application will be available at `http://localhost:8080`.
-
-## Usage
-
-Explore the application features by navigating through the user interface. The application provides easy access to tasks, projects, and collaboration tools.
-
-## API Documentation
-
-API documentation for Codex is available [here](link_to_your_api_documentation).
-
-## Contributing
-
-We welcome contributions to Codex! Please review our [Contributing Guidelines](CONTRIBUTING.md) for more details on how you can get involved.
-
-## License
-
-Codex is licensed under the [MIT License](LICENSE).
-
-## Contact
-
-If you have any questions, suggestions, or feedback, feel free to reach out to us:
-
-- Email: rajsekhar.acharya@example.com
-- GitHub: [@RajsekharAcharya](https://github.com/RajsekharAcharya)
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
